@@ -33,14 +33,17 @@ function goBtnClicked() {
 
 // Display All Characters
 function displayAll() {
-  container.innerHTML = `Number of names:
-   ${babyNames.length} `;
-  container.innerHTML = babyNames;
+  for (let i = 0; i < babyNames.length; i++) {
+    container.innerHTML += `<br${babyNames[i]}>${babyNames[i]}</br>`;
+    nameCountSpan.innerHTML = `${babyNames.length}`;
+  }
 }
 
 // Display Names with Starting Letter
 function searchStartingLetter() {
   container.innerHTML = "Display Starting Letter";
+  prompt("Please enter starting letter:");
+  for (let i = 0; i < babyNames.length; i++) {}
 }
 
 // Display Names with Exact Length
