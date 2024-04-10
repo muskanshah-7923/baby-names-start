@@ -42,11 +42,17 @@ function displayAll() {
 // Display Names with Starting Letter
 function searchStartingLetter() {
   container.innerHTML = "Display Starting Letter";
-  for (let i = 0; i < babyNames.length; i++) {
-  let var1 = prompt("Please enter starting letter:");
 
-    
+  let targetLetter = prompt("Please enter starting letter:");
+
+  for (let i = 0; i < babyNames.length; i++) {
+    if (targetLetter === 0) {
+      return babyNames[i].length.innerHTML;
+    } else {
+      return [];
+    }
   }
+  nameCountSpan.innerHTML = `${babyNames.length}`;
 }
 
 // Display Names with Exact Length
