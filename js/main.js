@@ -41,18 +41,35 @@ function displayAll() {
 
 // Display Names with Starting Letter
 function searchStartingLetter() {
-  container.innerHTML = "Display Starting Letter";
 
-  let targetLetter = prompt("Please enter starting letter:");
 
-  for (let i = 0; i < babyNames.length; i++) {
-    if (targetLetter === 0) {
-      return babyNames[i].length.innerHTML;
-    } else {
-      return [];
+let startingLetter = prompt("Enter the starting letter of a name:");
+
+// Convert the starting letter to uppercase for case insensitivity
+startingLetter = startingLetter.toUpperCase(); // Not necessairy
+
+// Initialize an array to store names starting with the specified letter
+let namesStartingWithLetter = [];
+
+// Loop through the baby names array and find names starting with the specified letter
+for (let i = 0; i < babyNames.length; i++) {
+    if (babyNames[i].charAt(0).toUpperCase() === startingLetter) {
+        namesStartingWithLetter.push(babyNames[i]);
     }
-  }
-  nameCountSpan.innerHTML = `${babyNames.length}`;
+}
+
+// Display the names starting with the specified letter and the number of names found
+if (namesStartingWithLetter.length > 0) {
+    console.log("Names starting with " + startingLetter + ":");
+    for (let j = 0; j < namesStartingWithLetter.length; j++) {
+        console.log(namesStartingWithLetter[j]);
+    }
+    console.log("Number of names found: " + namesStartingWithLetter.length);
+} else {
+    console.log("No names found starting with " + startingLetter);
+}
+
+
 }
 
 // Display Names with Exact Length
