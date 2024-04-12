@@ -21,8 +21,12 @@ function goBtnClicked() {
 
   // Process Menu Selection
   if (selection === "display-all") {
+<<<<<<< HEAD
   container.innerHTML = "";
     
+=======
+    container.innerHTML = "";
+>>>>>>> 563d1393be08c0187e7c89af51041c86ab941d9b
     displayAll();
   } else if (selection === "starting-letter") {
     searchStartingLetter();
@@ -39,14 +43,23 @@ function displayAll() {
   for (let i = 0; i < babyNames.length; i++) {
     container.innerHTML += `<p>${babyNames[i]}</p>`;
   }
+<<<<<<< HEAD
   nameCountSpan.innerHTML = `${babyNames.length}`;
+=======
+
+  nameCountSpan.innerHTML = babyNames.length;
+>>>>>>> 563d1393be08c0187e7c89af51041c86ab941d9b
 }
 
 // Display Names with Starting Letter
 function searchStartingLetter() {
-
   let targetLetter = prompt("Please enter starting letter:");
 
+<<<<<<< HEAD
+  let targetLetter = prompt("Please enter starting letter:");
+
+=======
+>>>>>>> 563d1393be08c0187e7c89af51041c86ab941d9b
   let count = [];
   for (let i = 0; i < babyNames.length; i++) {
     if (babyNames[i][0] === targetLetter) {
@@ -55,11 +68,15 @@ function searchStartingLetter() {
     }
   }
   nameCountSpan.innerHTML = count.length;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 563d1393be08c0187e7c89af51041c86ab941d9b
 }
 
 // Display Names with Exact Length
 function searchExactLength() {
+<<<<<<< HEAD
   let targetLength = +(prompt("Please enter the exact length of names to display:"));
   let count = [];
   for (let i = 0; i < babyNames.length; i++) {
@@ -69,6 +86,16 @@ function searchExactLength() {
   }
 }
   nameCountSpan.innerHTML = count.length;
+=======
+  let letters = prompt("Please enter minimum length:");
+  for (let i = 0; i < babyNames.length; i++) {
+    if (babyNames[i][0] === letters.length) {
+      container.innerHTML += "<p>" + babyNames[i] + "</p>";
+      letters.push(babyNames[i]);
+    }
+  }
+  nameCountSpan.innerHTML = letters.length;
+>>>>>>> 563d1393be08c0187e7c89af51041c86ab941d9b
 }
 
 // Display Names within a Range of Lengths
