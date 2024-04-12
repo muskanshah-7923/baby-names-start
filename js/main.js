@@ -21,6 +21,8 @@ function goBtnClicked() {
 
   // Process Menu Selection
   if (selection === "display-all") {
+  container.innerHTML = "";
+    
     displayAll();
   } else if (selection === "starting-letter") {
     searchStartingLetter();
@@ -33,51 +35,59 @@ function goBtnClicked() {
 
 // Display All Characters
 function displayAll() {
+  container.innerHTML = "";
   for (let i = 0; i < babyNames.length; i++) {
-    container.innerHTML += `<br${babyNames[i]}>${babyNames[i]}</br>`;
-    nameCountSpan.innerHTML = `${babyNames.length}`;
+    container.innerHTML += `<p>${babyNames[i]}</p>`;
   }
+  nameCountSpan.innerHTML = `${babyNames.length}`;
 }
 
 // Display Names with Starting Letter
 function searchStartingLetter() {
 
+  let targetLetter = prompt("Please enter starting letter:");
 
-let startingLetter = prompt("Enter the starting letter of a name:");
-
-// Convert the starting letter to uppercase for case insensitivity
-startingLetter = startingLetter.toUpperCase(); // Not necessairy
-
-// Initialize an array to store names starting with the specified letter
-let namesStartingWithLetter = [];
-
-// Loop through the baby names array and find names starting with the specified letter
-for (let i = 0; i < babyNames.length; i++) {
-    if (babyNames[i].charAt(0).toUpperCase() === startingLetter) {
-        namesStartingWithLetter.push(babyNames[i]);
+  let count = [];
+  for (let i = 0; i < babyNames.length; i++) {
+    if (babyNames[i][0] === targetLetter) {
+      container.innerHTML += "<p>" + babyNames[i] + "</p>";
+      count.push(babyNames[i]);
     }
-}
-
-// Display the names starting with the specified letter and the number of names found
-if (namesStartingWithLetter.length > 0) {
-    console.log("Names starting with " + startingLetter + ":");
-    for (let j = 0; j < namesStartingWithLetter.length; j++) {
-        console.log(namesStartingWithLetter[j]);
-    }
-    console.log("Number of names found: " + namesStartingWithLetter.length);
-} else {
-    console.log("No names found starting with " + startingLetter);
-}
-
+  }
+  nameCountSpan.innerHTML = count.length;
 
 }
 
 // Display Names with Exact Length
 function searchExactLength() {
-  container.innerHTML = "Display Exact Length";
+  let targetLength = +(prompt("Please enter the exact length of names to display:"));
+  let count = [];
+  for (let i = 0; i < babyNames.length; i++) {
+  if (babyNames[i].length === targetLength) {
+  container.innerHTML += "<p>" + babyNames[i] + "</p>";
+  count.push(babyNames[i]);
+  }
+}
+  nameCountSpan.innerHTML = count.length;
 }
 
 // Display Names within a Range of Lengths
 function searchRangeLength() {
-  container.innerHTML = "Display Range Length";
+
+  let min = +(prompt("Please enter the minimum length of names to display:"));
+  let max = +(prompt("Please enter the maximum length of names to display:"));
+  let count = 0;
+
+  container.innerHTML = "";
+
+  for (let i = 0; i < babyNames.length; i++) {
+    if (babyNames[i].length >= min && babyNames[i].length <= max) {
+      container.innerHTML += `<p>${babyNames[i]}</p>`;
+      count++;
+    }
+  }
+
+  nameCountSpan.innerHTML = count;
 }
+
+
