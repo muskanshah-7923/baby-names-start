@@ -80,8 +80,6 @@ function searchRangeLength() {
   let max = +prompt("Please enter the maximum length of names to display:");
   let count = 0;
 
-  container.innerHTML = "";
-
   for (let i = 0; i < babyNames.length; i++) {
     if (babyNames[i].length >= min && babyNames[i].length <= max) {
       container.innerHTML += `<p>${babyNames[i]}</p>`;
