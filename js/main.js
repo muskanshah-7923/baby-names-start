@@ -23,7 +23,6 @@ function goBtnClicked() {
   if (selection === "display-all") {
     container.innerHTML = "";
 
-    container.innerHTML = "";
     displayAll();
   } else if (selection === "starting-letter") {
     searchStartingLetter();
